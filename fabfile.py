@@ -86,9 +86,9 @@ def start():
     migrate()
     start_workers()
 
-    print green('You can now browse:')
+    print(green('You can now browse:'))
     for domain in [env.root_domain] + env.extra_domains:
-        print yellow("* https://" + domain)
+        print(yellow("* https://" + domain))
 
 
 @task
@@ -255,11 +255,11 @@ def set_local_configuration():
         shellProjectName = local('echo %PROJECT_NAME%', capture=True)
         if (shellProjectName != env.project_name):
             domains = '`' + '`, `'.join([env.root_domain] + env.extra_domains) + '`'
-            print 'You must manually set environment variables on Windows:'
-            print '$Env:PROJECT_NAME="%s"' % env.project_name
-            print '$Env:PROJECT_DIRECTORY="%s"' % env.project_directory
-            print '$Env:PROJECT_HOSTNAMES="%s"' % env.project_hostnames
-            print '$Env:PROJECT_DOMAINS="%s"' % domains
+            print('You must manually set environment variables on Windows:')
+            print('$Env:PROJECT_NAME="%s"' % env.project_name)
+            print('$Env:PROJECT_DIRECTORY="%s"' % env.project_directory)
+            print('$Env:PROJECT_HOSTNAMES="%s"' % env.project_hostnames)
+            print('$Env:PROJECT_DOMAINS="%s"' % domains)
             raise SystemError('Env vars not set (Windows detected)')
 
     if not env.power_shell:
@@ -269,6 +269,5 @@ def set_local_configuration():
         env.user_id = 1000
 
     env.root_dir = os.path.dirname(os.path.abspath(__file__))
-
 
 set_local_configuration()

@@ -3,13 +3,14 @@ version: 2
 jobs:
     check-python-cs:
         docker:
-            - image: circleci/python:2.7
+            - image: circleci/python:3.7
         steps:
             - checkout
             - run: sudo pip install pycodestyle
             - run:
                   name: Check cs
-                  command: pycodestyle fabfile.py --ignore=E501,W605,E722
+                  # command: pycodestyle fabfile.py --ignore=E501,W605,E722
+                  command: pycodestyle fabfile.py
 
     tests:
         machine:

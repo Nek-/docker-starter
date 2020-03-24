@@ -111,7 +111,6 @@ def stop(c):
     """
     Stop the infrastructure
     """
-    stop_workers(c)
     docker_compose(c, 'stop')
 
 
